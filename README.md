@@ -1,2 +1,1 @@
-# Kelompok 7 - Sayap Ayam
-Link presentasi: https://www.canva.com/design/DAFPaVdVv0Y/LwxouErh0DYU_dcXYzJn0Q/edit
+This is a starter template for [Learn Next.js](https://nextjs.org/learn).
