@@ -5,7 +5,7 @@ import Three from './components/three'
 
 function App() {
   return (
-    <Canvas id='museum-canvas'>
+    <Canvas id='museum-canvas' shadows>
       <Suspense fallback={null}>
         <Three></Three>
       </Suspense>
