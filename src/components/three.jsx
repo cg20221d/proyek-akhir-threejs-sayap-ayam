@@ -5,6 +5,15 @@ import { angleToRadians } from "../utils/angleToRadians";
 import * as THREE from "three";
 import gsap from "gsap";
 
+import { Mosasaurus } from "./models/Mosasaurus";
+import { Spinosaurus } from "./models/Spinosaurus";
+import { Stegosaurus } from "./models/Stegosaurus";
+import { Stygimoloch } from "./models/Stygimoloch";
+import { Triceratops } from "./models/Triceratops";
+import { Tyrannosaurus } from "./models/Tyrannosaurus";
+
+import DinosaurInfo from "../API/dinosaur";
+
 const Three = () => {
     
     const [ballRotation, setBallRotation] = useState(0);
@@ -46,15 +55,24 @@ const Three = () => {
             
             timeline.play();
         }
-    }, [ballRef.current])
+
+        console.log(DinosaurInfo);
+    }, [])
     
-    
+    // {DinosaurInfo.map((dino, index) => {
+    //     console.log(dino.length, dino.name)
+    // })}
+
+    let x = 12
+    let y = 0
+    let z = 0
+
     return(
         <>
         <PerspectiveCamera makeDefault={true} position={[0,10,100]}></PerspectiveCamera>
         <OrbitControls autoRotate={false} ref={orbitControlsRef} minPolarAngle={angleToRadians(40)} maxPolarAngle={angleToRadians(80)}></OrbitControls>
 
-        <mesh position={[0, 27, 0]} castShadow ref={ballRef}>
+        {/* <mesh position={[0, 27, 0]} castShadow ref={ballRef}>
             <sphereGeometry args={[7, 32, 32]}></sphereGeometry>
             <meshStandardMaterial color="#ffffff" metalness={0.8} roughness={0.2}></meshStandardMaterial>
         </mesh>
@@ -62,7 +80,23 @@ const Three = () => {
         <mesh position={[-14, 12, 7]} castShadow>
             <boxGeometry args={[7,7,7]}></boxGeometry>
             <meshStandardMaterial color={0xffff} metalness={0.8} roughness={0.2}></meshStandardMaterial>
-        </mesh>
+        </mesh> */}
+
+        {DinosaurInfo.map((dino, index) => {
+            return(
+                <mesh key={index} position={[x + 25 * index, dino.length/2, z]} castShadow>
+                    <boxGeometry args={[dino.length, dino.length, dino.length]}></boxGeometry>
+                    <meshStandardMaterial color={0xffff} metalness={0.8} roughness={0.2}></meshStandardMaterial>
+                </mesh>
+            )
+        })}
+
+        {/* <Mosasaurus></Mosasaurus> */}
+        {/* <Spinosaurus></Spinosaurus> */}
+        {/* <Stegosaurus></Stegosaurus> */}
+        {/* <Stygimoloch></Stygimoloch> */}
+        {/* <Triceratops></Triceratops> */}
+        <Tyrannosaurus scale={10}></Tyrannosaurus>
 
         <mesh rotation={[-angleToRadians(90), 0, 0]} receiveShadow>
             <planeGeometry args={[20000, 20000]}></planeGeometry>

@@ -1,0 +1,69 @@
+[
+    {
+        "name": "mosasaurus",
+        "latin":"M. hoffmannii",
+        "height":0,
+        "length":13,
+        "weight": 5.5,
+        "feed":"",
+        "period":"cretaceous",
+        "geography":"",
+        "info":""
+    },
+    {
+        "name": "spinosaurus", 
+        "latin":"S. aegyptiacus",
+        "height":0,
+        "length":14,
+        "weight": 7.4,
+        "feed":"",
+        "period":"cretaceous",
+        "geography":"",
+        "info":""    
+    },
+    {
+        "name": "stegosaurus",
+        "latin":"S. ungulatus",
+        "height":0,
+        "length":7,
+        "weight": 3.8,
+        "feed":"",
+        "period":"cretaceous",
+        "geography":"",
+        "info":""
+    },
+    {
+        "name": "stygimoloch",
+        "latin":"P. wyomingensis",
+        "height":0,
+        "length":4.5,
+        "weight": 0.45,
+        "feed":"",
+        "period":"cretaceous",
+        "geography":"",
+        "info":""
+    },
+    {
+        "name": "triceratops",
+        "latin": "T. horridus ",
+        "height":0,
+        "length":9,
+        "weight": 9,
+        "feed":"",
+        "period":"cretaceous",
+        "geography":"",
+        "info":""
+    },
+    {
+        "name": "tyrannosaurus",
+        "latin":"",
+        "height": 3.96,
+        "length":12.3,
+        "weight": 8,
+        "feed":"",
+        "period":"cretaceous",
+        "geography":"",
+        "info":""
+    }
+]
+
