@@ -1,0 +1,23 @@
+.hero#hero {
+  background: rgb(7, 0, 22);
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero#hero h1.hero-title {
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #fff;
+}
+.hero#hero h1.hero-title span {
+  color: #691eff;
+}
+.hero#hero p.hero-text {
+  color: #878787;
+}
+.hero#hero .hero-btn-group {
+  margin-top: 5rem;
+}/*# sourceMappingURL=Home.css.map */

@@ -1,0 +1,31 @@
+$primary-color: #070016;
+$heading-color: #691eff;
+$text-color: #878787;
+
+nav.navbar#my-navbar {
+  background: $primary-color;
+  color: #fff;
+  border-bottom: 1px solid $heading-color;
+
+  .navbar-brand {
+    color: $heading-color;
+    font-weight: 900;
+  }
+
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        color: #fff;
+
+        &:hover {
+          color: $heading-color;
+        }
+
+        &.active {
+          color: $heading-color;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

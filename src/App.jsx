@@ -1,14 +1,18 @@
-import { Suspense, useState } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import CanvasContainer from "./components/CanvasContainer";
+import Home from "./pages/Home/Home";
+// import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<CanvasContainer />} />
-      {/* <Route path="/ferdi" element={<CanvasContainer />} /> */}
-    </Routes>
+    <>
+      {/* <Navbar /> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/test" element={<CanvasContainer />} />
+      </Routes>
+    </>
   );
 }
 

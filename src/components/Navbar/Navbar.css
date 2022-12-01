@@ -1,0 +1,19 @@
+nav.navbar#my-navbar {
+  background: #070016;
+  color: #fff;
+  border-bottom: 1px solid #691eff;
+}
+nav.navbar#my-navbar .navbar-brand {
+  color: #691eff;
+  font-weight: 900;
+}
+nav.navbar#my-navbar .navbar-nav .nav-item .nav-link {
+  color: #fff;
+}
+nav.navbar#my-navbar .navbar-nav .nav-item .nav-link:hover {
+  color: #691eff;
+}
+nav.navbar#my-navbar .navbar-nav .nav-item .nav-link.active {
+  color: #691eff;
+  font-weight: 500;
+}/*# sourceMappingURL=Navbar.css.map */
