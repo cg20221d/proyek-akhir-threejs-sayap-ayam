@@ -1,15 +1,14 @@
-import { Suspense, useState } from 'react'
-import './App.css'
-import { Canvas } from '@react-three/fiber'
-import Three from './components/three'
+import { Suspense, useState } from "react";
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import CanvasContainer from "./components/CanvasContainer";
 
 function App() {
   return (
-    <Canvas id='museum-canvas' shadows>
-      <Suspense fallback={null}>
-        <Three></Three>
-      </Suspense>
-    </Canvas>
+    <Routes>
+      <Route path="/" element={<CanvasContainer />} />
+      {/* <Route path="/ferdi" element={<CanvasContainer />} /> */}
+    </Routes>
   );
 }
 
