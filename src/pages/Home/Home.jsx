@@ -9,9 +9,9 @@ const Home = () => {
     <>
       <Navbar />
       <div className="hero" id="hero">
-        <div className="row flex-column-reverse flex-md-row justify-content-center align-items-center m-0">
-          <div className="col-md-6">
-            <div className="container">
+        <div className="container">
+          <div className="row flex-column-reverse flex-md-row justify-content-center align-items-center m-0">
+            <div className="col-md-6 ps-0">
               <h1 className="hero-title">
                 <span>Explore</span> the most <br />
                 ancient <span>creatures</span>
@@ -29,9 +29,9 @@ const Home = () => {
                 </Link>
               </div>
             </div>
-          </div>
-          <div className="p-0 m-0 col-md-6 text-end">
-            <img src={Hero} alt="" className="img-fluid mb-5 mb-md-0" />
+            <div className="pe-0 m-0 col-md-6 text-end">
+              <img src={Hero} alt="" className="img-fluid mb-5 mb-md-0" />
+            </div>
           </div>
         </div>
       </div>
