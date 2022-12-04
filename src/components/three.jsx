@@ -25,7 +25,7 @@ const Three = () => {
   const orbitControlsRef = useRef(null);
 
   const [usrX, setUsrX] = useState(0)
-  const [usrY, setUsrY] = useState(1)
+  const [usrY, setUsrY] = useState(10)
   const [usrZ, setUsrZ] = useState(0)
 
   useFrame((state) => {

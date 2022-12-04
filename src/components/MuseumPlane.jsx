@@ -1,12 +1,21 @@
+import { usePlane } from "@react-three/cannon";
 import { MeshReflectorMaterial } from "@react-three/drei";
 import React from "react";
 import { angleToRadians } from "../utils/angleToRadians";
 
 const MuseumPlane = () => {
-  return (
+    const rotation = [-angleToRadians(90), 0, 0]
+    
+    const [ref] = usePlane(
+        () => ({
+            type: "Static",
+            rotation: rotation
+        })
+    )
+  
+    return (
     <>
-      <mesh rotation={[-angleToRadians(90), 0, 0]} receiveShadow>
-        <circleGeometry args={[100, 64]}></circleGeometry>
+      <mesh rotation={rotation} receiveShadow>
         <MeshReflectorMaterial
 
             metalness={0.05}
@@ -19,6 +28,7 @@ const MuseumPlane = () => {
             resolution={256}
             mirror={0}
         />
+        <circleGeometry args={[100, 64]}></circleGeometry>
       </mesh>
     </>
   );

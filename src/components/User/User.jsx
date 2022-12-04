@@ -14,7 +14,7 @@ const User = ({position, setUsrX, setUsrZ}) => {
 
   const [userBody, userApi] = useBox(
     () => ({
-      args: size,
+      args: [height, height, height],
       mass: 60,
       position,
     }),
@@ -22,9 +22,9 @@ const User = ({position, setUsrX, setUsrZ}) => {
   )
 
   return (
-    <mesh position={position}>
-        <boxGeometry args={size}/>
+    <mesh ref={userBody} castShadow>
         <meshPhongMaterial color={0xffff00}/>
+        <boxGeometry args={size}/>
     </mesh>
   )
 }

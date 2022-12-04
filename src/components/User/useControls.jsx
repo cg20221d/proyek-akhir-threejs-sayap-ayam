@@ -1,9 +1,7 @@
 import { useFrame } from "@react-three/fiber";
 import { useEffect, useState } from "react";
 
-export const useControls = (x, z, accelerationX, accelerationZ) => {
-    const movementSpeed = 0.5
-    
+export const useControls = (userApi) => {
     let [controls, setControls] = useState({
         w: false,
         a: false,
@@ -35,31 +33,32 @@ export const useControls = (x, z, accelerationX, accelerationZ) => {
         }
     }, []);
 
-    // useEffect(() => {
-    //     console.log(controls)
+    useEffect(() => {
+        console.log(controls)
 
-    //     if(controls.w){
-    //         accelerationZ(z+1);
-    //     }if(controls.a){
-    //         accelerationX(x-1);
-    //     }if(controls.s){
-    //         accelerationZ(z-1);
-    //     }if(controls.d){
-    //         accelerationX(x+1);
-    //     }
-    // }, [controls])
-    
-    useFrame(() => {
-                if(controls.w){
-            accelerationZ(z+movementSpeed);
+        if(controls.w){
+            accelerationZ(z+1);
         }if(controls.a){
-            accelerationX(x-movementSpeed);
+            accelerationX(x-1);
         }if(controls.s){
-            accelerationZ(z-movementSpeed);
+            accelerationZ(z-1);
         }if(controls.d){
-            accelerationX(x+movementSpeed);
+            accelerationX(x+1);
+            userApi.
         }
-    })
+    }, [controls])
+    
+    // useFrame(() => {
+    //             if(controls.w){
+    //         accelerationZ(z+movementSpeed);
+    //     }if(controls.a){
+    //         accelerationX(x-movementSpeed);
+    //     }if(controls.s){
+    //         accelerationZ(z-movementSpeed);
+    //     }if(controls.d){
+    //         accelerationX(x+movementSpeed);
+    //     }
+    // })
 
     return controls;
 } 
