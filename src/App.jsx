@@ -2,17 +2,15 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import CanvasContainer from "./components/CanvasContainer";
 import Home from "./pages/Home/Home";
-import MosasaurusPage from "./pages/MosasaurusPage/MosasaurusPage";
-// import Navbar from "./components/Navbar/Navbar";
+import MosasaurusCanvas from "./pages/MosasaurusPage/MosasaurusCanvas";
 
 function App() {
   return (
     <>
-      {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/test" element={<CanvasContainer />} />
-        <Route path="/mosasaurus" element={<MosasaurusPage />} />
+        <Route path="/mosasaurus" element={<MosasaurusCanvas />} />
       </Routes>
     </>
   );
