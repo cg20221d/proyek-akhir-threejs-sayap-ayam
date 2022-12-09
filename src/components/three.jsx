@@ -24,9 +24,9 @@ import MuseumPlane from "./MuseumPlane";
 const Three = () => {
   const orbitControlsRef = useRef(null);
 
-  const [usrX, setUsrX] = useState(0)
-  const [usrY, setUsrY] = useState(10)
-  const [usrZ, setUsrZ] = useState(0)
+  const [usrX, setUsrX] = useState(0);
+  const [usrY, setUsrY] = useState(10);
+  const [usrZ, setUsrZ] = useState(0);
 
   useFrame((state) => {
     if (!!orbitControlsRef.current) {
@@ -39,7 +39,6 @@ const Three = () => {
   });
 
   useEffect(() => {
-
     console.log(DinosaurInfo);
   }, []);
 
@@ -54,11 +53,14 @@ const Three = () => {
         position={[100, 100, 110]}
         fov={40}
       ></PerspectiveCamera>
-      <OrbitControls
-      target={[usrX, usrY, usrZ]}
-      ></OrbitControls>
+      <OrbitControls target={[usrX, usrY, usrZ]}></OrbitControls>
 
-      <User position={[usrX,usrY,usrZ]} setUsrX={setUsrX} setUsrZ={setUsrZ}></User>
+      <User
+        position={[usrX, usrY, usrZ]}
+        setUsrX={setUsrX}
+        setUsrZ={setUsrZ}
+        setUsrY={setUsrY}
+      ></User>
 
       {DinosaurInfo.map((dino, index) => {
         return (
@@ -79,12 +81,12 @@ const Three = () => {
         );
       })}
 
-      <Mosasaurus scale={0.035} position={[12, 15, 1]}></Mosasaurus>
+      <Mosasaurus scale={0.05} position={[12, 15, 1]}></Mosasaurus>
       <Spinosaurus position={[15, 15, 1]}></Spinosaurus>
-      {/* <Stegosaurus></Stegosaurus> */}
-      {/* <Stygimoloch></Stygimoloch> */}
-      {/* <Triceratops></Triceratops> */}
-      {/* <Tyrannosaurus scale={3}></Tyrannosaurus> */}
+      <Stegosaurus scale={0.05}></Stegosaurus>
+      <Stygimoloch scale={0.05}></Stygimoloch>
+      <Triceratops scale={5} position={[60, 15, 1]}></Triceratops>
+      <Tyrannosaurus scale={3} position={[40, 15, 1]}></Tyrannosaurus>
 
       <MuseumPlane></MuseumPlane>
 
