@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import { angleToRadians } from "../../utils/angleToRadians";
-import { PerspectiveCamera } from "@react-three/drei";
+import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { useEffect } from "react";
 
 function Box(props) {
   const mesh = useRef();
@@ -39,11 +40,43 @@ const PlaneGeo = (props) => {
 };
 
 const Mosasaurus = () => {
+  const orbitControlsRef = useRef(null);
+
+  useFrame((state) => {
+    if (!!orbitControlsRef.current) {
+      const { x, y } = state.mouse;
+      // console.log(orbitControlsRef.current);
+      orbitControlsRef.current.autoRotate = true;
+      orbitControlsRef.current.rotateSpeed = 1;
+      orbitControlsRef.current.autoRotateSpeed = 1.5;
+
+      // orbitControlsRef.current.setAzimuthalAngle(-x * angleToRadians(90));
+      // orbitControlsRef.current.setPolarAngle((y + 0.5) * angleToRadians(90));
+      orbitControlsRef.current.update();
+    }
+  });
+
+  useEffect(() => {
+    if (!!orbitControlsRef.current) {
+      // orbitControlsRef.current.autoRotate = false;
+      console.log(orbitControlsRef.current);
+    }
+  }, [orbitControlsRef.current]);
+
   return (
     <>
+      {/* CAMERA */}
       <PerspectiveCamera makeDefault position={[0, 1, 5]} />
+      <OrbitControls
+        ref={orbitControlsRef}
+        maxPolarAngle={angleToRadians(89)}
+      />
+
+      {/* LIGHT */}
       <ambientLight args={["#FFF", 1]} />
       <pointLight position={[10, 10, 10]} />
+
+      {/* MODEL */}
       <Box position={[0, 0, 0]} />
       <PlaneGeo rotation={[-angleToRadians(90), 0, 0]} />
     </>
