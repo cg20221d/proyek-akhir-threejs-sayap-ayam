@@ -10,9 +10,9 @@ function Box(props) {
   const [hovered, setHover] = useState(false);
   const [active, setActive] = useState(false);
 
-  useFrame((state, delta) => (mesh.current.rotation.x += delta));
-  useFrame((state, delta) => (mesh.current.rotation.y += delta));
-  useFrame((state, delta) => (mesh.current.rotation.z += delta));
+  // useFrame((state, delta) => (mesh.current.rotation.x += delta));
+  // useFrame((state, delta) => (mesh.current.rotation.y += delta));
+  // useFrame((state, delta) => (mesh.current.rotation.z += delta));
 
   return (
     <mesh
@@ -24,7 +24,7 @@ function Box(props) {
       onPointerOut={(event) => setHover(false)}
       position={[0, 1, 0]}
     >
-      <boxGeometry args={[1, 1, 1]} />
+      <sphereGeometry args={[1, 64, 32]} />
       <meshStandardMaterial color={hovered ? "hotpink" : "orange"} />
     </mesh>
   );
@@ -34,7 +34,7 @@ const PlaneGeo = (props) => {
   return (
     <mesh {...props}>
       <planeGeometry args={[100, 100]} />
-      <meshStandardMaterial color="black" />
+      <meshPhongMaterial color="blue" />
     </mesh>
   );
 };
@@ -46,7 +46,7 @@ const Mosasaurus = () => {
     if (!!orbitControlsRef.current) {
       const { x, y } = state.mouse;
       // console.log(orbitControlsRef.current);
-      orbitControlsRef.current.autoRotate = true;
+      orbitControlsRef.current.autoRotate = false;
       orbitControlsRef.current.rotateSpeed = 1;
       orbitControlsRef.current.autoRotateSpeed = 1.5;
 
@@ -66,19 +66,23 @@ const Mosasaurus = () => {
   return (
     <>
       {/* CAMERA */}
-      <PerspectiveCamera makeDefault position={[0, 1, 5]} />
+      <PerspectiveCamera makeDefault position={[4, 4, 10]} />
       <OrbitControls
         ref={orbitControlsRef}
         maxPolarAngle={angleToRadians(89)}
       />
 
       {/* LIGHT */}
-      <ambientLight args={["#FFF", 1]} />
-      <pointLight position={[10, 10, 10]} />
+      <ambientLight args={["#FFF", 0.25]} />
+      <spotLight
+        args={["#FFF", 3, 7, angleToRadians(45), 0.4]}
+        position={[-3, 2, 0]}
+        castShadow
+      />
 
       {/* MODEL */}
-      <Box position={[0, 0, 0]} />
-      <PlaneGeo rotation={[-angleToRadians(90), 0, 0]} />
+      <Box position={[0, 0, 0]} castShadow />
+      <PlaneGeo rotation={[-angleToRadians(90), 0, 0]} receiveShadow />
     </>
   );
 };
