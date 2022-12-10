@@ -10,9 +10,9 @@ function Box(props) {
   const [hovered, setHover] = useState(false);
   const [active, setActive] = useState(false);
 
-  // useFrame((state, delta) => (mesh.current.rotation.x += delta));
-  // useFrame((state, delta) => (mesh.current.rotation.y += delta));
-  // useFrame((state, delta) => (mesh.current.rotation.z += delta));
+  useFrame((state, delta) => (mesh.current.rotation.x += delta));
+  useFrame((state, delta) => (mesh.current.rotation.y += delta));
+  useFrame((state, delta) => (mesh.current.rotation.z += delta));
 
   return (
     <mesh
@@ -24,7 +24,7 @@ function Box(props) {
       onPointerOut={(event) => setHover(false)}
       position={[0, 1, 0]}
     >
-      <sphereGeometry args={[1, 64, 32]} />
+      <boxGeometry args={[1, 1, 1]} />
       <meshStandardMaterial color={hovered ? "hotpink" : "orange"} />
     </mesh>
   );
@@ -46,7 +46,7 @@ const Mosasaurus = () => {
     if (!!orbitControlsRef.current) {
       const { x, y } = state.mouse;
       // console.log(orbitControlsRef.current);
-      orbitControlsRef.current.autoRotate = false;
+      orbitControlsRef.current.autoRotate = true;
       orbitControlsRef.current.rotateSpeed = 1;
       orbitControlsRef.current.autoRotateSpeed = 1.5;
 
