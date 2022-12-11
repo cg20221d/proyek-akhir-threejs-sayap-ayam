@@ -1,10 +1,28 @@
 .mosasaurusPage {
   height: 100vh;
+  overflow: hidden;
+  position: relative !important;
+  .mosasaurusInfo {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #fff;
+    width: 50%;
+    color: #fff;
+  }
 }
 
 #mosasaurusCanvas {
-  width: 100%;
+  width: 50%;
   height: 100%;
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  bottom: 0;
 }
 // .mosasaurusPage__title {
 //   position: absolute;

@@ -10,6 +10,7 @@ import {
 // import { useEffect } from "react";
 import * as THREE from "three";
 import { Mosasaurus } from "../../components/models/Mosasaurus";
+import { Tyrannosaurus } from "../../components/models/Tyrannosaurus";
 
 // import Texture from "./assets/texture.hdr";
 
@@ -79,7 +80,7 @@ const MosasaurusModel = () => {
       {/* LIGHT */}
       <ambientLight args={["#FFF", 0.25]} />
       <spotLight
-        args={["#FFF", 3, 7, angleToRadians(60), 0.4]}
+        args={["#FFF", 5, 10, angleToRadians(60), 0.4]}
         position={[-3, 4, 0]}
         castShadow
       />
@@ -93,9 +94,8 @@ const MosasaurusModel = () => {
         position={[1, 1, 0]}
         rotation={[0, -angleToRadians(90), 0]}
       />
-
       {/* <Environment files="./assets/texture.hdr" background /> */}
-      <Environment background near={1} far={1000} resolution={2160}>
+      <Environment background near={1} far={1000} resolution={1080}>
         <mesh scale={100}>
           <sphereGeometry args={[1, 64, 64]} />
           <meshBasicMaterial map={map} side={THREE.BackSide} />
