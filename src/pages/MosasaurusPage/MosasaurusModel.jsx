@@ -90,12 +90,12 @@ const MosasaurusModel = () => {
 
       <Mosasaurus
         scale={0.02}
-        position={[1, 0.5, 0]}
+        position={[1, 1, 0]}
         rotation={[0, -angleToRadians(90), 0]}
       />
 
       {/* <Environment files="./assets/texture.hdr" background /> */}
-      <Environment background near={1} far={1000} resolution={256}>
+      <Environment background near={1} far={1000} resolution={2160}>
         <mesh scale={100}>
           <sphereGeometry args={[1, 64, 64]} />
           <meshBasicMaterial map={map} side={THREE.BackSide} />
