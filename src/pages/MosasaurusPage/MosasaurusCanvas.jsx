@@ -1,7 +1,7 @@
 import { Html } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { React, Suspense } from "react";
-import Mosasaurus from "./Mosasaurus";
+import MosasaurusModel from "./MosasaurusModel";
 import "./Mosasaurus.css";
 
 const MosasaurusCanvas = () => {
@@ -9,7 +9,7 @@ const MosasaurusCanvas = () => {
     <div className="mosasaurusPage">
       <Canvas id="mosasaurusCanvas" shadows>
         <Suspense fallback={null}>
-          <Mosasaurus />
+          <MosasaurusModel />
           <gridHelper args={[100, 100, 0xff0000, "teal"]} />
           {/* <Html>
             <div className="mosasaurusPage__title">

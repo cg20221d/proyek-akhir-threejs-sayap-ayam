@@ -6,25 +6,48 @@ source: https://sketchfab.com/3d-models/spinosaurus-d98b4f7dcf6d40b8b1f0b5523b3f
 title: Spinosaurus
 */
 
-import React, { useRef } from 'react'
-import { useGLTF } from '@react-three/drei'
+import React, { useRef } from "react";
+import { useGLTF } from "@react-three/drei";
 
 export function Spinosaurus(props) {
-  const { nodes, materials } = useGLTF('models/spinosaurus/spinosaurus-transformed.glb')
-  const {scale, position, rotation} = props;
+  const { nodes, materials } = useGLTF(
+    "models/spinosaurus/spinosaurus-transformed.glb"
+  );
+  const { scale, position, rotation } = props;
   return (
-    <group {...props} dispose={null} scale={scale} position={position} rotation={rotation}>
+    <group
+      {...props}
+      dispose={null}
+      scale={scale}
+      position={position}
+      rotation={rotation}
+    >
       <group rotation={[-Math.PI / 2, 0, 0]} scale={0.09}>
         <group rotation={[Math.PI / 2, 0, 0]}>
           <group rotation={[-Math.PI / 2, 0, 0]}>
-            <mesh castShadow receiveShadow geometry={nodes.spino_v02_printable_Standardmaterial_0.geometry} material={materials.Standardmaterial} />
-            <mesh castShadow receiveShadow geometry={nodes.spino_v02_printable_Standardmaterial_0_1.geometry} material={materials.Standardmaterial} />
-            <mesh castShadow receiveShadow geometry={nodes.spino_v02_printable_Standardmaterial_0_2.geometry} material={materials.Standardmaterial} />
+            <mesh
+              castShadow
+              receiveShadow
+              geometry={nodes.spino_v02_printable_Standardmaterial_0.geometry}
+              material={materials.Standardmaterial}
+            />
+            <mesh
+              castShadow
+              receiveShadow
+              geometry={nodes.spino_v02_printable_Standardmaterial_0_1.geometry}
+              material={materials.Standardmaterial}
+            />
+            <mesh
+              castShadow
+              receiveShadow
+              geometry={nodes.spino_v02_printable_Standardmaterial_0_2.geometry}
+              material={materials.Standardmaterial}
+            />
           </group>
         </group>
       </group>
     </group>
-  )
+  );
 }
 
-useGLTF.preload('models/spinosaurus/spinosaurus-transformed.glb')
+useGLTF.preload("models/spinosaurus/spinosaurus-transformed.glb");

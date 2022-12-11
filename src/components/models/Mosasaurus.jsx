@@ -6,26 +6,51 @@ source: https://sketchfab.com/3d-models/mosasaurus-4a1feecff6c7468b8c07ba0ad439e
 title: Mosasaurus
 */
 
-import React, { useRef } from 'react'
-import { useGLTF, useAnimations } from '@react-three/drei'
+import React, { useRef } from "react";
+import { useGLTF, useAnimations } from "@react-three/drei";
 
 export function Mosasaurus(props) {
-  const group = useRef()
-  const { nodes, materials, animations } = useGLTF('models/mosasaurus/mosasaurus-transformed.glb')
-  const { actions } = useAnimations(animations, group)
-  
-  const {scale, position, rotation} = props;
+  const group = useRef();
+  const { nodes, materials, animations } = useGLTF(
+    "models/mosasaurus/mosasaurus-transformed.glb"
+  );
+  const { actions } = useAnimations(animations, group);
+
+  const { scale, position, rotation } = props;
   return (
-    <group ref={group} {...props} dispose={null} scale={scale} position={position} rotation={rotation}>
+    <group
+      ref={group}
+      {...props}
+      dispose={null}
+      scale={scale}
+      position={position}
+      rotation={rotation}
+    >
       <group name="Sketchfab_Scene">
         <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
           <group name="root">
             <group name="GLTF_SceneRootNode" rotation={[Math.PI / 2, 0, 0]}>
-              <group name="Armature_51" rotation={[Math.PI / 2, 0, 0]} scale={0.23}>
+              <group
+                name="Armature_51"
+                rotation={[Math.PI / 2, 0, 0]}
+                scale={0.23}
+              >
                 <group name="GLTF_created_0">
                   <primitive object={nodes.GLTF_created_0_rootJoint} />
-                  <skinnedMesh name="Object_7" geometry={nodes.Object_7.geometry} material={materials.canglong} skeleton={nodes.Object_7.skeleton} />
-                  <skinnedMesh name="Object_9" geometry={nodes.Object_9.geometry} material={materials.canglong} skeleton={nodes.Object_9.skeleton} />
+                  <skinnedMesh
+                    name="Object_7"
+                    geometry={nodes.Object_7.geometry}
+                    material={materials.canglong}
+                    skeleton={nodes.Object_7.skeleton}
+                    castShadow
+                  />
+                  <skinnedMesh
+                    name="Object_9"
+                    geometry={nodes.Object_9.geometry}
+                    material={materials.canglong}
+                    skeleton={nodes.Object_9.skeleton}
+                    castShadow
+                  />
                 </group>
               </group>
             </group>
@@ -33,7 +58,7 @@ export function Mosasaurus(props) {
         </group>
       </group>
     </group>
-  )
+  );
 }
 
-useGLTF.preload('models/mosasaurus/mosasaurus-transformed.glb')
+useGLTF.preload("models/mosasaurus/mosasaurus-transformed.glb");

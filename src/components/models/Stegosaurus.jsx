@@ -6,17 +6,26 @@ source: https://sketchfab.com/3d-models/stegosaurus-1924052361fb4bd49b714d296a34
 title: Stegosaurus
 */
 
-import React, { useRef } from 'react'
-import { useGLTF, useAnimations } from '@react-three/drei'
+import React, { useRef } from "react";
+import { useGLTF, useAnimations } from "@react-three/drei";
 
 export function Stegosaurus(props) {
-  const group = useRef()
-  const { nodes, materials, animations } = useGLTF('models/stegosaurus/stegosaurus-transformed.glb')
-  const { actions } = useAnimations(animations, group)
-  
-  const {scale, position, rotation} = props;
+  const group = useRef();
+  const { nodes, materials, animations } = useGLTF(
+    "models/stegosaurus/stegosaurus-transformed.glb"
+  );
+  const { actions } = useAnimations(animations, group);
+
+  const { scale, position, rotation } = props;
   return (
-    <group ref={group} {...props} dispose={null} scale={scale} position={position} rotation={rotation}>
+    <group
+      ref={group}
+      {...props}
+      dispose={null}
+      scale={scale}
+      position={position}
+      rotation={rotation}
+    >
       <group name="Sketchfab_Scene">
         <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
           <group name="Stegosaurus_fbxFBX" rotation={[Math.PI / 2, 0, 0]}>
@@ -24,7 +33,13 @@ export function Stegosaurus(props) {
               <group name="RootNode">
                 <group name="Object_4">
                   <primitive object={nodes._rootJoint} />
-                  <skinnedMesh name="Object_7" geometry={nodes.Object_7.geometry} material={materials.jianlong} skeleton={nodes.Object_7.skeleton} />
+                  <skinnedMesh
+                    name="Object_7"
+                    geometry={nodes.Object_7.geometry}
+                    material={materials.jianlong}
+                    skeleton={nodes.Object_7.skeleton}
+                    castShadow
+                  />
                 </group>
               </group>
             </group>
@@ -32,7 +47,7 @@ export function Stegosaurus(props) {
         </group>
       </group>
     </group>
-  )
+  );
 }
 
-useGLTF.preload('models/stegosaurus/stegosaurus-transformed.glb')
+useGLTF.preload("models/stegosaurus/stegosaurus-transformed.glb");
