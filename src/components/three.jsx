@@ -15,12 +15,17 @@ import { Stegosaurus } from "./models/Stegosaurus";
 import { Triceratops } from "./models/Triceratops";
 import { Tyrannosaurus } from "./models/Tyrannosaurus";
 
-import DinosaurInfo from "../API/dinosaur";
-import User from "./User/User";
+import Car from "./Car/Car";
 import MuseumPlane from "./MuseumPlane";
 import ModelScaler from "./models/ModelScaler";
 
 const Three = () => {
+  const spotlightArgs = [0xffffff, 2, 50, angleToRadians(45), 0, 2, 1];
+  const stegoCoordinates = [-25, 0, 1];
+  const spinoCoordinates = [-12.5, 0, 1];
+  const trexCoordinates = [12.5, 0.5, 1];
+  const triceratopsCoordinates = [25, 0.5, 1];
+
   const orbitControlsRef = useRef(null);
 
   const [usrX, setUsrX] = useState(0);
@@ -45,29 +50,51 @@ const Three = () => {
         fov={40}
       ></PerspectiveCamera>
       <OrbitControls target={[usrX, usrY, usrZ]}></OrbitControls>
-
-      <User
-        position={[usrX, usrY, usrZ]}
-        setUsrX={setUsrX}
-        setUsrZ={setUsrZ}
-        setUsrY={setUsrY}
-      ></User>
+      
+      <Car></Car>
 
       {/* <ModelScaler></ModelScaler> */}
-
-      <Stegosaurus scale={0.020}></Stegosaurus> {/*155 - 145 mye*/}
-      <Spinosaurus scale={1.25} position={[15, 15, 1]}></Spinosaurus> {/*99 - 93.5 mye*/}
-      <Tyrannosaurus scale={0.75} position={[40, 15, 1]}></Tyrannosaurus> {/*68 - 66 mye*/}
-      <Triceratops scale={1} position={[50, 10, 1]}></Triceratops> {/*66 mye*/}
-
-      <MuseumPlane></MuseumPlane>
-
-      <ambientLight args={["#fff", 0.25]}></ambientLight>
+      
+      <Stegosaurus scale={0.02} position={stegoCoordinates}></Stegosaurus>
+      {/*155 - 145 mye*/}
       <spotLight
-        args={["#fff", 5, 100, angleToRadians(90), 0.4, 2, 1]}
-        position={[10, 20, 10]}
+        args={spotlightArgs}
+        position={[-25, 1, 10]}
+        lookAt={spinoCoordinates}
         castShadow
       ></spotLight>
+
+
+      <Spinosaurus scale={1.25} position={spinoCoordinates}></Spinosaurus>
+      {/*99 - 93.5 mye*/}
+      <spotLight
+        args={spotlightArgs}
+        position={[-12.5, 1, 10]}
+        lookAt={spinoCoordinates}
+        castShadow
+      ></spotLight>
+
+
+      <Tyrannosaurus scale={0.75} position={trexCoordinates}
+      ></Tyrannosaurus>
+      {/*68 - 66 mye*/}
+      <spotLight
+        args={spotlightArgs}
+        position={[12.5, 1, 10]}
+        lookAt={spinoCoordinates}
+        castShadow
+      ></spotLight>
+
+      <Triceratops scale={1} position={triceratopsCoordinates}></Triceratops> {/*66 mye*/}
+      <spotLight
+        args={spotlightArgs}
+        position={[25, 1, 10]}
+        lookAt={spinoCoordinates}
+        castShadow
+      ></spotLight>
+
+
+      <MuseumPlane></MuseumPlane>
 
       <Environment background>
         <mesh scale={1000}>
