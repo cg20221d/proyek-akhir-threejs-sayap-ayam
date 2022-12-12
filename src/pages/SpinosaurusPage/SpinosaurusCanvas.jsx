@@ -1,25 +1,26 @@
-import { Html } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { React, Suspense } from "react";
-import MosasaurusModel from "./MosasaurusModel";
-import "./Mosasaurus.css";
+import SpinosaurusModel from "./SpinosaurusModel";
+import "./Spinnosaurus.css";
 
-const MosasaurusCanvas = () => {
+const SpinosaurusCanvas = () => {
   return (
-    <div className="mosasaurusPage m-0 p-0">
-      <Canvas id="mosasaurusCanvas" shadows>
+    <div className="spinnosaurusPage m-0 p-0">
+      <Canvas id="spinnosaurusCanvas" shadows>
         <Suspense fallback={null}>
-          <MosasaurusModel />
+          <SpinosaurusModel />
           <gridHelper args={[100, 100, 0xff0000, "teal"]} />
         </Suspense>
       </Canvas>
       <div className="detail-info">
         <h1 className="mb-3 detail-info__title">Detail Information</h1>
         <p className="detail-info__text">
-          Mosasaurus (/ˌmoʊzəˈsɔːrəs/; "lizard of the Meuse River") is the type
-          genus (defining example) of the mosasaurs, an extinct group of aquatic
-          squamate reptiles. It lived from about 82 to 66 million years ago
-          during the Campanian and Maastrichtian stages of the Late Cretaceous.
+          Spinosaurus (/ˌspɪnəˈsɔːrəs/; lit. 'spine lizard') is a genus of
+          spinosaurid dinosaur that lived in what now is North Africa during the
+          Cenomanian to upper Turonian stages of the Late Cretaceous period,
+          about 99 to 93.5 million years ago.[2][3] The genus was known first
+          from Egyptian remains discovered in 1912 and described by German
+          palaeontologist Ernst Stromer in 1915.
         </p>
         <div
           className="accordion accordion-flush d-block w-100"
@@ -55,28 +56,20 @@ const MosasaurusCanvas = () => {
                     <td>Chordata</td>
                   </tr>
                   <tr>
-                    <th scope="row">Class</th>
-                    <td>Reptilia</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Order</th>
-                    <td>Squamata</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Superfamily</th>
-                    <td>Mosasauroidea</td>
+                    <th scope="row">Clade</th>
+                    <td>Dinosauria, Saurischia, Theropoda</td>
                   </tr>
                   <tr>
                     <th scope="row">Family</th>
-                    <td>Mosasauridae</td>
+                    <td>Spinosauridae</td>
                   </tr>
                   <tr>
                     <th scope="row">Tribe</th>
-                    <td>Mosasaurini</td>
+                    <td>Spinosaurini</td>
                   </tr>
                   <tr>
                     <th scope="row">Genus</th>
-                    <td>Mosasaurus</td>
+                    <td>Spinosaurus</td>
                   </tr>
                 </table>
               </div>
@@ -120,4 +113,4 @@ const MosasaurusCanvas = () => {
   );
 };
 
-export default MosasaurusCanvas;
+export default SpinosaurusCanvas;

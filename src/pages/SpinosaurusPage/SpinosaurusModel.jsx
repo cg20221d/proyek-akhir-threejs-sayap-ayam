@@ -7,11 +7,9 @@ import {
   PerspectiveCamera,
   useEnvironment,
 } from "@react-three/drei";
-// import { useEffect } from "react";
 import * as THREE from "three";
-import { Mosasaurus } from "../../components/models/Mosasaurus";
 
-// import Texture from "./assets/texture.hdr";
+import { Spinosaurus } from "../../components/models/Spinosaurus";
 
 function Box(props) {
   const mesh = useRef();
@@ -49,7 +47,7 @@ const PlaneGeo = (props) => {
   );
 };
 
-const MosasaurusModel = () => {
+const SpinosaurusModel = () => {
   const map = useEnvironment({ files: "./assets/texture.hdr" });
   const orbitControlsRef = useRef(null);
 
@@ -70,7 +68,7 @@ const MosasaurusModel = () => {
   return (
     <>
       {/* CAMERA */}
-      <PerspectiveCamera makeDefault position={[4, 4, 10]} />
+      <PerspectiveCamera makeDefault position={[10, 10, 20]} />
       <OrbitControls
         ref={orbitControlsRef}
         maxPolarAngle={angleToRadians(89)}
@@ -79,8 +77,8 @@ const MosasaurusModel = () => {
       {/* LIGHT */}
       <ambientLight args={["#FFF", 0.25]} />
       <spotLight
-        args={["#FFF", 5, 10, angleToRadians(60), 0.4]}
-        position={[-3, 4, 0]}
+        args={["#FFF", 2, 50, angleToRadians(45), 0.4]}
+        position={[-5, 5, 2]}
         castShadow
       />
 
@@ -88,9 +86,9 @@ const MosasaurusModel = () => {
       {/* <Box position={[0, 0, 0]} castShadow /> */}
       <PlaneGeo rotation={[-angleToRadians(90), 0, 0]} receiveShadow />
 
-      <Mosasaurus
-        scale={0.02}
-        position={[1, 1, 0]}
+      <Spinosaurus
+        scale={2}
+        position={[2, 0, 0]}
         rotation={[0, -angleToRadians(90), 0]}
       />
       {/* <Environment files="./assets/texture.hdr" background /> */}
@@ -104,4 +102,4 @@ const MosasaurusModel = () => {
   );
 };
 
-export default MosasaurusModel;
+export default SpinosaurusModel;
