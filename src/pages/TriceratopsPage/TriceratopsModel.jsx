@@ -46,6 +46,8 @@ const TriceratopsModel = () => {
       <OrbitControls
         ref={orbitControlsRef}
         maxPolarAngle={angleToRadians(89)}
+        minDistance={15}
+        maxDistance={50}
       />
 
       {/* LIGHT */}

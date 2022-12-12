@@ -9,6 +9,7 @@ import {
 } from "@react-three/drei";
 import * as THREE from "three";
 import { Tyrannosaurus } from "../../components/models/Tyrannosaurus";
+import { Triceratops } from "../../components/models/Triceratops";
 
 const PlaneGeo = (props) => {
   const map = useEnvironment({ files: "./assets/texture.hdr" });
@@ -35,6 +36,8 @@ const TyrannosaurusModel = () => {
       // orbitControlsRef.current.setAzimuthalAngle(-x * angleToRadians(90));
       // orbitControlsRef.current.setPolarAngle((y + 0.5) * angleToRadians(90));
       orbitControlsRef.current.update();
+
+      // console.log(orbitControlsRef);
     }
   });
 
@@ -45,6 +48,8 @@ const TyrannosaurusModel = () => {
       <OrbitControls
         ref={orbitControlsRef}
         maxPolarAngle={angleToRadians(89)}
+        minDistance={23}
+        maxDistance={50}
       />
 
       {/* LIGHT */}

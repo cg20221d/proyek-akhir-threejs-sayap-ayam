@@ -47,6 +47,7 @@ const SpinosaurusCanvas = () => {
             >
               <div className="accordion-body">
                 <table className="table table-borderless">
+                  <tbody>
                   <tr>
                     <th scope="row">Kingdom</th>
                     <td>Animalia</td>
@@ -71,6 +72,7 @@ const SpinosaurusCanvas = () => {
                     <th scope="row">Genus</th>
                     <td>Spinosaurus</td>
                   </tr>
+                  </tbody>
                 </table>
               </div>
             </div>

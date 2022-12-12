@@ -46,6 +46,8 @@ const StegosaurusModel = () => {
       <OrbitControls
         ref={orbitControlsRef}
         maxPolarAngle={angleToRadians(89)}
+        minDistance={5}
+        maxDistance={50}
       />
 
       {/* LIGHT */}

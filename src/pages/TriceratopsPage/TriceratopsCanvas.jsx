@@ -50,6 +50,7 @@ const TriceratopsCanvas = () => {
             >
               <div className="accordion-body">
                 <table className="table table-borderless">
+                  <tbody>
                   <tr>
                     <th scope="row">Kingdom</th>
                     <td>Animalia</td>
@@ -86,6 +87,7 @@ const TriceratopsCanvas = () => {
                     <th scope="row">Genus</th>
                     <td>Triceratops</td>
                   </tr>
+                  </tbody>
                 </table>
               </div>
             </div>
