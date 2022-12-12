@@ -10,16 +10,15 @@ import { angleToRadians } from "../utils/angleToRadians";
 import * as THREE from "three";
 import gsap from "gsap";
 
-import { Mosasaurus } from "./models/Mosasaurus";
 import { Spinosaurus } from "./models/Spinosaurus";
 import { Stegosaurus } from "./models/Stegosaurus";
-import { Stygimoloch } from "./models/Stygimoloch";
 import { Triceratops } from "./models/Triceratops";
 import { Tyrannosaurus } from "./models/Tyrannosaurus";
 
 import DinosaurInfo from "../API/dinosaur";
 import User from "./User/User";
 import MuseumPlane from "./MuseumPlane";
+import ModelScaler from "./models/ModelScaler";
 
 const Three = () => {
   const orbitControlsRef = useRef(null);
@@ -38,14 +37,6 @@ const Three = () => {
     }
   });
 
-  useEffect(() => {
-    console.log(DinosaurInfo);
-  }, []);
-
-  let x = 12;
-  let y = 0;
-  let z = 0;
-
   return (
     <>
       <PerspectiveCamera
@@ -62,31 +53,12 @@ const Three = () => {
         setUsrY={setUsrY}
       ></User>
 
-      {DinosaurInfo.map((dino, index) => {
-        return (
-          <mesh
-            key={index}
-            position={[x + 25 * index, dino.length / 2, z]}
-            castShadow
-          >
-            <boxGeometry
-              args={[dino.length, dino.length, dino.length]}
-            ></boxGeometry>
-            <meshStandardMaterial
-              color={0xffff}
-              metalness={0.8}
-              roughness={0.2}
-            ></meshStandardMaterial>
-          </mesh>
-        );
-      })}
+      {/* <ModelScaler></ModelScaler> */}
 
-      <Mosasaurus scale={0.05} position={[12, 15, 1]}></Mosasaurus>
-      <Spinosaurus position={[15, 15, 1]}></Spinosaurus>
-      <Stegosaurus scale={0.05}></Stegosaurus>
-      <Stygimoloch scale={0.05}></Stygimoloch>
-      <Triceratops scale={5} position={[60, 15, 1]}></Triceratops>
-      <Tyrannosaurus scale={3} position={[40, 15, 1]}></Tyrannosaurus>
+      <Stegosaurus scale={0.020}></Stegosaurus> {/*155 - 145 mye*/}
+      <Spinosaurus scale={1.25} position={[15, 15, 1]}></Spinosaurus> {/*99 - 93.5 mye*/}
+      <Tyrannosaurus scale={0.75} position={[40, 15, 1]}></Tyrannosaurus> {/*68 - 66 mye*/}
+      <Triceratops scale={1} position={[50, 10, 1]}></Triceratops> {/*66 mye*/}
 
       <MuseumPlane></MuseumPlane>
 

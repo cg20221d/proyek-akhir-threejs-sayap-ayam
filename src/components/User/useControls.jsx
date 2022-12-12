@@ -51,17 +51,5 @@ export const useControls = (userApi) => {
     }
   }, [controls]);
 
-  // useFrame(() => {
-  //             if(controls.w){
-  //         accelerationZ(z+movementSpeed);
-  //     }if(controls.a){
-  //         accelerationX(x-movementSpeed);
-  //     }if(controls.s){
-  //         accelerationZ(z-movementSpeed);
-  //     }if(controls.d){
-  //         accelerationX(x+movementSpeed);
-  //     }
-  // })
-
   return controls;
 };
