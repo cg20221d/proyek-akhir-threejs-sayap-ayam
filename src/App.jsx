@@ -4,6 +4,7 @@ import CanvasContainer from "./components/CanvasContainer";
 import Home from "./pages/Home/Home";
 import MosasaurusCanvas from "./pages/MosasaurusPage/MosasaurusCanvas";
 import SpinosaurusCanvas from "./pages/SpinosaurusPage/SpinosaurusCanvas";
+import StegosaurusCanvas from "./pages/StegosaurusPage/StegosaurusCanvas";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/test" element={<CanvasContainer />} />
         <Route path="/mosasaurus" element={<MosasaurusCanvas />} />
         <Route path="/spinosaurus" element={<SpinosaurusCanvas />} />
+        <Route path="/stegosaurus" element={<StegosaurusCanvas />} />
       </Routes>
     </>
   );
