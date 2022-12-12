@@ -1,0 +1,75 @@
+.tyrannosaurusPage {
+  height: 100vh;
+  overflow: hidden;
+  position: relative !important;
+}
+.tyrannosaurusPage .detail-info {
+  position: absolute !important;
+  background-color: rgba(255, 255, 255, 0.2);
+  top: 10vh;
+  right: 10vw;
+  bottom: 10vh;
+  border-radius: 10px;
+  box-shadow: 0 0 50px 5px rgba(255, 255, 255, 0.2);
+  width: 35%;
+  color: #fff;
+  overflow-y: auto;
+  padding: 1.5rem;
+}
+.tyrannosaurusPage .detail-info::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.tyrannosaurusPage .detail-info::-webkit-scrollbar-button {
+  width: 100px;
+  height: 100px;
+}
+.tyrannosaurusPage .detail-info::-webkit-scrollbar-thumb {
+  background: #e6e6e6;
+  border: 0px none #ffffff;
+  border-radius: 100px;
+}
+.tyrannosaurusPage .detail-info::-webkit-scrollbar-thumb:hover {
+  background: #d9d9d9;
+}
+.tyrannosaurusPage .detail-info::-webkit-scrollbar-thumb:active {
+  background: #bfbfbf;
+}
+.tyrannosaurusPage .detail-info::-webkit-scrollbar-track {
+  background: #ffffff;
+  border: 0px none #ffffff;
+  border-radius: 100px;
+}
+.tyrannosaurusPage .detail-info::-webkit-scrollbar-track:hover {
+  background: #dedede;
+}
+.tyrannosaurusPage .detail-info::-webkit-scrollbar-track:active {
+  background: #c7c7c7;
+}
+.tyrannosaurusPage .detail-info::-webkit-scrollbar-corner {
+  background: transparent;
+}
+.tyrannosaurusPage .detail-info .detail-info__title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.tyrannosaurusPage .detail-info .detail-info__text {
+  color: rgb(218, 218, 218);
+}
+.tyrannosaurusPage .detail-info .table {
+  color: rgb(218, 218, 218);
+}
+.tyrannosaurusPage .detail-info .accordion#accordionExample,
+.tyrannosaurusPage .detail-info .accordion-item,
+.tyrannosaurusPage .detail-info .accordion-button,
+.tyrannosaurusPage .detail-info .accordion-collapse,
+.tyrannosaurusPage .detail-info .accordion-body {
+  background-color: transparent;
+  color: rgb(218, 218, 218);
+}
+.tyrannosaurusPage .detail-info .accordion-button {
+  font-weight: 500;
+  color: #fff;
+}/*# sourceMappingURL=Tyrannosaurus.css.map */

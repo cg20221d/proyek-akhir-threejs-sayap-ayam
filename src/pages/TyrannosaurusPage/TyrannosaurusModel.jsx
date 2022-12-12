@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { angleToRadians } from "../../utils/angleToRadians";
 import {
@@ -7,37 +7,8 @@ import {
   PerspectiveCamera,
   useEnvironment,
 } from "@react-three/drei";
-// import { useEffect } from "react";
 import * as THREE from "three";
-import { Mosasaurus } from "../../components/models/Mosasaurus";
-
-// import Texture from "./assets/texture.hdr";
-
-function Box(props) {
-  const mesh = useRef();
-
-  const [hovered, setHover] = useState(false);
-  const [active, setActive] = useState(false);
-
-  useFrame((state, delta) => (mesh.current.rotation.x += delta));
-  useFrame((state, delta) => (mesh.current.rotation.y += delta));
-  useFrame((state, delta) => (mesh.current.rotation.z += delta));
-
-  return (
-    <mesh
-      {...props}
-      ref={mesh}
-      scale={active ? 1.5 : 1}
-      onClick={(event) => setActive(!active)}
-      onPointerOver={(event) => setHover(true)}
-      onPointerOut={(event) => setHover(false)}
-      position={[0, 1, 0]}
-    >
-      <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={hovered ? "hotpink" : "orange"} />
-    </mesh>
-  );
-}
+import { Tyrannosaurus } from "../../components/models/Tyrannosaurus";
 
 const PlaneGeo = (props) => {
   const map = useEnvironment({ files: "./assets/texture.hdr" });
@@ -49,7 +20,7 @@ const PlaneGeo = (props) => {
   );
 };
 
-const MosasaurusModel = () => {
+const TyrannosaurusModel = () => {
   const map = useEnvironment({ files: "./assets/texture.hdr" });
   const orbitControlsRef = useRef(null);
 
@@ -79,8 +50,8 @@ const MosasaurusModel = () => {
       {/* LIGHT */}
       <ambientLight args={["#FFF", 0.25]} />
       <spotLight
-        args={["#FFF", 5, 10, angleToRadians(60), 0.4]}
-        position={[-3, 4, 0]}
+        args={["#FFF", 5, 40, angleToRadians(60), 0.4]}
+        position={[-17, 6, 0]}
         castShadow
       />
 
@@ -88,9 +59,9 @@ const MosasaurusModel = () => {
       {/* <Box position={[0, 0, 0]} castShadow /> */}
       <PlaneGeo rotation={[-angleToRadians(90), 0, 0]} receiveShadow />
 
-      <Mosasaurus
-        scale={0.02}
-        position={[1, 1, 0]}
+      <Tyrannosaurus
+        scale={2}
+        position={[5, 1, 0]}
         rotation={[0, -angleToRadians(90), 0]}
       />
       {/* <Environment files="./assets/texture.hdr" background /> */}
@@ -104,4 +75,4 @@ const MosasaurusModel = () => {
   );
 };
 
-export default MosasaurusModel;
+export default TyrannosaurusModel;

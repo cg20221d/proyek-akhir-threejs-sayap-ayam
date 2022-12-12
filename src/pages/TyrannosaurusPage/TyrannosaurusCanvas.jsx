@@ -1,25 +1,27 @@
 import { Html } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { React, Suspense } from "react";
-import MosasaurusModel from "./MosasaurusModel";
-import "./Mosasaurus.css";
+import TyrannosaurusModel from "./TyrannosaurusModel";
+import "./Tyrannosaurus.css";
 
-const MosasaurusCanvas = () => {
+const TyrannosaurusCanvas = () => {
   return (
-    <div className="mosasaurusPage m-0 p-0">
-      <Canvas id="mosasaurusCanvas" shadows>
+    <div className="tyrannosaurusPage m-0 p-0">
+      <Canvas id="tyrannosaurusCanvas" shadows>
         <Suspense fallback={null}>
-          <MosasaurusModel />
+          <TyrannosaurusModel />
           <gridHelper args={[100, 100, 0xff0000, "teal"]} />
         </Suspense>
       </Canvas>
       <div className="detail-info">
         <h1 className="mb-3 detail-info__title">Detail Information</h1>
         <p className="detail-info__text">
-          Mosasaurus (/ˌmoʊzəˈsɔːrəs/; "lizard of the Meuse River") is the type
-          genus (defining example) of the mosasaurs, an extinct group of aquatic
-          squamate reptiles. It lived from about 82 to 66 million years ago
-          during the Campanian and Maastrichtian stages of the Late Cretaceous.
+          Tyrannosaurus[nb 1] is a genus of large theropod dinosaur. The species
+          Tyrannosaurus rex (rex meaning "king" in Latin), often called T. rex
+          or colloquially T-Rex, is one of the best represented theropods.
+          Tyrannosaurus lived throughout what is now western North America, on
+          what was then an island continent known as Laramidia. Tyrannosaurus
+          had a much wider range than other tyrannosaurids.
         </p>
         <div
           className="accordion accordion-flush d-block w-100"
@@ -55,28 +57,20 @@ const MosasaurusCanvas = () => {
                     <td>Chordata</td>
                   </tr>
                   <tr>
-                    <th scope="row">Class</th>
-                    <td>Reptilia</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Order</th>
-                    <td>Squamata</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Superfamily</th>
-                    <td>Mosasauroidea</td>
+                    <th scope="row">Clade</th>
+                    <td>Dinosauria, Saurischia, Theropoda</td>
                   </tr>
                   <tr>
                     <th scope="row">Family</th>
-                    <td>Mosasauridae</td>
+                    <td>Tyrannosauridae</td>
                   </tr>
                   <tr>
-                    <th scope="row">Tribe</th>
-                    <td>Mosasaurini</td>
+                    <th scope="row">Subfamily</th>
+                    <td>Tyrannosaurinae</td>
                   </tr>
                   <tr>
                     <th scope="row">Genus</th>
-                    <td>Mosasaurus</td>
+                    <td>Tyrannosaurus</td>
                   </tr>
                 </table>
               </div>
@@ -120,4 +114,4 @@ const MosasaurusCanvas = () => {
   );
 };
 
-export default MosasaurusCanvas;
+export default TyrannosaurusCanvas;
