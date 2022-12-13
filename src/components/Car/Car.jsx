@@ -64,7 +64,7 @@ const Car = ({thirdPerson}) => {
 
     let cameraPosition = position.clone().add(
       wDirection.clone().multiplyScalar(-1).add(
-        new Vector3(0, 5, 10)
+        new Vector3(0, 25, 50)
       )
     );
 
