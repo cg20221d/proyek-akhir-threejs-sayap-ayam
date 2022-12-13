@@ -18,27 +18,28 @@ const CanvasContainer = () => {
       </Canvas>
 
       <div className="controls">
+        <p className="me-3 controls-text mb-3">press w a s d to move</p>
         <Link
           to="/spinosaurus"
-          className="btn btn-outline-primary mb-3 d-block"
+          className="controls-link btn btn-outline-primary mx-3"
         >
           Go to Spinosaurus
         </Link>
         <Link
           to="/stegosaurus"
-          className="btn btn-outline-primary mb-3 d-block"
+          className="controls-link btn btn-outline-primary me-3"
         >
           Go to Stegosaurus
         </Link>
         <Link
           to="/triceratops"
-          className="btn btn-outline-primary mb-3 d-block"
+          className="controls-link btn btn-outline-primary me-3"
         >
           Go to Triceratops
         </Link>
         <Link
           to="/tyrannosaurus"
-          className="btn btn-outline-primary mb-3 d-block"
+          className="controls-link btn btn-outline-primary me-3"
         >
           Go to Tyrannosaurus
         </Link>
