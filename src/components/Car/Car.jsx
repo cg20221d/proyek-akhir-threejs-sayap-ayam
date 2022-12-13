@@ -6,10 +6,14 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import React from "react";
 import useWheels from "./useWheels";
 import { WheelDebug } from "./WheelDebug";
+import { useGLTF } from "@react-three/drei";
 
 const Car = () => {
   // "(FREE) Cyberpunk Hovercar" (https://skfb.ly/6WyrM) by Karol Miklas is licensed under Creative Commons Attribution-ShareAlike (http://creativecommons.org/licenses/by-sa/4.0/).
   const mesh = useLoader(GLTFLoader, "/models/hovercar/hovercar.glb").scene;
+  const meshTest = useGLTF("/models/hovercar/hovercar.glb");
+
+  console.log(meshTest);
   const scale = [0.1, 0.1, 0.1];
   const spawn = [-365, -18, -67];
 
@@ -46,9 +50,10 @@ const Car = () => {
   }, [mesh]);
 
   return (
-    <group 
-    // ref={vehicle} 
-    name="hovercar">
+    <group
+      // ref={vehicle}
+      name="hovercar"
+    >
       {/* <primitive object={mesh} rotation-y={Math.PI} /> */}
       <mesh ref={chassisBody}>
         <meshBasicMaterial
@@ -59,10 +64,10 @@ const Car = () => {
         <boxGeometry args={chassisBodyArgs}></boxGeometry>
       </mesh>
 
-      <WheelDebug wheelRef={wheels[0]} radius={wheelRadius}/>
-      <WheelDebug wheelRef={wheels[1]} radius={wheelRadius}/>
-      <WheelDebug wheelRef={wheels[2]} radius={wheelRadius}/>
-      <WheelDebug wheelRef={wheels[3]} radius={wheelRadius}/>
+      <WheelDebug wheelRef={wheels[0]} radius={wheelRadius} />
+      <WheelDebug wheelRef={wheels[1]} radius={wheelRadius} />
+      <WheelDebug wheelRef={wheels[2]} radius={wheelRadius} />
+      <WheelDebug wheelRef={wheels[3]} radius={wheelRadius} />
     </group>
   );
 };

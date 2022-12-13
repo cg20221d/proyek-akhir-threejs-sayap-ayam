@@ -21,10 +21,10 @@ const Home = () => {
                 when these fantastic creatures ruled the planet.
               </p>
               <div className="hero-btn-group">
-                <Link className="my-btn-primary me-3" to="/">
+                <Link className="my-btn-primary me-3" to="/test">
                   Explore Now
                 </Link>
-                <Link className="my-btn-secondary" to="/">
+                <Link className="my-btn-secondary" to="/test">
                   Learn More
                 </Link>
               </div>
