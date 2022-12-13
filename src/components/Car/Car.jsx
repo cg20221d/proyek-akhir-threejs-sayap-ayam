@@ -5,19 +5,21 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
 import React from "react";
 import useWheels from "./useWheels";
+import { useControls } from "./useControls";
 import { WheelDebug } from "./WheelDebug";
 import { useGLTF } from "@react-three/drei";
 
 const Car = () => {
-  // "(FREE) Cyberpunk Hovercar" (https://skfb.ly/6WyrM) by Karol Miklas is licensed under Creative Commons Attribution-ShareAlike (http://creativecommons.org/licenses/by-sa/4.0/).
-  const mesh = useLoader(GLTFLoader, "/models/hovercar/hovercar.glb").scene;
-  const meshTest = useGLTF("/models/hovercar/hovercar.glb");
+  // "UFO Doodle" (https://skfb.ly/ozxTn) by re1monsen is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+  let result = useLoader(
+    GLTFLoader,
+    "/models/ufo/ufo.glb"
+  ).scene;
 
-  console.log(meshTest);
-  const scale = [0.1, 0.1, 0.1];
-  const spawn = [-365, -18, -67];
+  console.log(result);
+  const scale = 0.25
 
-  const position = [-1.5, 0.5, 3];
+  const position = [0, 0, 0];
   const width = 1.5;
   const height = 0.7;
   const front = 1.5;
@@ -44,25 +46,31 @@ const Car = () => {
     useRef(null)
   );
 
+  useControls(vehicleApi, chassisApi);
+
   useEffect(() => {
-    mesh.scale.set(scale);
-    mesh.children[0].position.set(spawn);
-  }, [mesh]);
+    if (!result) return;
+
+    let mesh = result;
+    mesh.scale.set(scale, scale, scale);
+
+    mesh.children[0].position.set(0, 2, 0);
+  }, [result]);
 
   return (
-    <group
-      ref={vehicle}
-      name="hovercar"
-    >
-      {/* <primitive object={mesh} rotation-y={Math.PI} /> */}
-      <mesh ref={chassisBody}>
+    <group ref={vehicle} name="ufo">
+      <group ref={chassisBody} name="chassisBody">
+        <primitive object={result} rotation-y={Math.PI}/>
+      </group>
+
+      {/* <mesh ref={chassisBody}>
         <meshBasicMaterial
           transparent={true}
           opacity={0.3}
           color={0x000000}
         ></meshBasicMaterial>
         <boxGeometry args={chassisBodyArgs}></boxGeometry>
-      </mesh>
+      </mesh> */}
 
       <WheelDebug wheelRef={wheels[0]} radius={wheelRadius} />
       <WheelDebug wheelRef={wheels[1]} radius={wheelRadius} />
