@@ -1,0 +1,43 @@
+import { useEffect, useState } from "react";
+
+export const useControls = (vehicleAPI, chassisAPI) => {
+    let [controls, setControls] = useState({
+
+    });
+
+    useEffect(() => {
+        const keyDownHandler = (e) => {
+            setControls((controls) => ({
+                ...controls,
+                [e.key.toLowerCase()]: true
+            }));
+            console.log(e.key.toLowerCase());
+        }
+
+        const keyUpHandler = (e) => {
+            setControls((controls) => ({
+                ...controls,
+                [e.key.toLowerCase()]: false
+            }));
+            console.log(e.key.toLowerCase());
+        }
+
+        window.addEventListener("keydown", keyDownHandler);
+        window.addEventListener("keyup", keyUpHandler);
+    }, []);
+
+    useEffect(() => {
+        if(controls.w){
+            vehicleAPI.applyEngineForce(150, 2);
+            vehicleAPI.applyEngineForce(150, 3);
+        }else if(controls.s){
+            vehicleAPI.applyEngineForce(-150, 2);
+            vehicleAPI.applyEngineForce(-150, 3);
+        }else {
+            vehicleAPI.applyEngineForce(0, 2);
+            vehicleAPI.applyEngineForce(0, 3);
+        }
+    }, [controls, vehicleAPI, chassisAPI])
+
+    return controls;
+}
