@@ -12,7 +12,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/test" element={<CanvasContainer />} />
+        <Route path="/world" element={<CanvasContainer />} />
         <Route path="/tyrannosaurus" element={<TyrannosaurusCanvas />} />
         <Route path="/spinosaurus" element={<SpinosaurusCanvas />} />
         <Route path="/stegosaurus" element={<StegosaurusCanvas />} />

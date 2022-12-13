@@ -2,6 +2,7 @@ import { Canvas } from "@react-three/fiber";
 import { React, Suspense } from "react";
 import TriceratopsModel from "./TriceratopsModel";
 import "./Triceratops.css";
+import { Link } from "react-router-dom";
 
 const TriceratopsCanvas = () => {
   return (
@@ -93,6 +94,9 @@ const TriceratopsCanvas = () => {
             </div>
           </div>
         </div>
+        <Link to="/world" className="btn btn-primary mt-5 d-block">
+          Back to World
+        </Link>
       </div>
     </div>
   );

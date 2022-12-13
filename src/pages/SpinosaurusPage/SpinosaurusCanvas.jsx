@@ -2,6 +2,7 @@ import { Canvas } from "@react-three/fiber";
 import { React, Suspense } from "react";
 import SpinosaurusModel from "./SpinosaurusModel";
 import "./Spinnosaurus.css";
+import { Link } from "react-router-dom";
 
 const SpinosaurusCanvas = () => {
   return (
@@ -78,6 +79,10 @@ const SpinosaurusCanvas = () => {
             </div>
           </div>
         </div>
+
+        <Link to="/world" className="btn btn-primary mt-5 d-block">
+          Back to World
+        </Link>
       </div>
     </div>
   );
