@@ -18,10 +18,10 @@ const Car = () => {
   const spawn = [-365, -18, -67];
 
   const position = [-1.5, 0.5, 3];
-  const width = 0.15;
-  const height = 0.07;
-  const front = 0.15;
-  const wheelRadius = 0.05;
+  const width = 1.5;
+  const height = 0.7;
+  const front = 1.5;
+  const wheelRadius = 0.5;
 
   const chassisBodyArgs = [width, height, front * 2];
   const [chassisBody, chassisApi] = useBox(
@@ -35,14 +35,14 @@ const Car = () => {
 
   const [wheels, wheelInfos] = useWheels(width, height, front, wheelRadius);
 
-  // const [vehicle, vehicleApi] = useRaycastVehicle(
-  //   () => ({
-  //     chassisBody,
-  //     wheelInfos,
-  //     wheels,
-  //   }),
-  //   useRef(null)
-  // );
+  const [vehicle, vehicleApi] = useRaycastVehicle(
+    () => ({
+      chassisBody,
+      wheelInfos,
+      wheels,
+    }),
+    useRef(null)
+  );
 
   useEffect(() => {
     mesh.scale.set(scale);
@@ -51,7 +51,7 @@ const Car = () => {
 
   return (
     <group
-      // ref={vehicle}
+      ref={vehicle}
       name="hovercar"
     >
       {/* <primitive object={mesh} rotation-y={Math.PI} /> */}

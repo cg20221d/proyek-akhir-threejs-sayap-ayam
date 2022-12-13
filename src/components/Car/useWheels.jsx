@@ -1,14 +1,12 @@
 import { useCompoundBody } from "@react-three/cannon";
 import { useRef } from "react";
 
-import React from "react";
-
 const useWheels = (width, height, front, radius) => {
   const wheels = [useRef(null), useRef(null), useRef(null), useRef(null)];
 
   const wheelInfo = {
     radius,
-    directionalLocal: [0, -1, 0],
+    directionLocal: [0, -1, 0],
     axleLocal: [1, 0, 0],
     suspensionStiffness: 60,
     suspensionRestLength: 0.1,
@@ -25,22 +23,22 @@ const useWheels = (width, height, front, radius) => {
   const wheelInfos = [
     {
       ...wheelInfo,
-      chassisConnectionPointLocal: [-width * 0.65, height * 0.4, front],
+      chassisConnectionPointLocal: [-width * 0.65, -radius, front],
       isFrontWheel: true,
     },
     {
       ...wheelInfo,
-      chassisConnectionPointLocal: [width * 0.65, height * 0.4, front],
+      chassisConnectionPointLocal: [width * 0.65, -radius, front],
       isFrontWheel: true,
     },
     {
       ...wheelInfo,
-      chassisConnectionPointLocal: [-width * 0.65, height * 0.4, -front],
+      chassisConnectionPointLocal: [-width * 0.65, -radius, -front],
       isFrontWheel: false,
     },
     {
       ...wheelInfo,
-      chassisConnectionPointLocal: [width * 0.65, height * 0.4, -front],
+      chassisConnectionPointLocal: [width * 0.65, -radius, -front],
       isFrontWheel: false,
     },
   ];
@@ -50,7 +48,7 @@ const useWheels = (width, height, front, radius) => {
     mass: 1,
     shapes: [
         {
-            args: [wheelInfo.radius, wheelInfo.radius, 0.015, 16],
+            args: [wheelInfo.radius, wheelInfo.radius, 0.5, 16],
             rotation: [0, 0, -Math.PI/2],
             type: "Cylinder"
         },
