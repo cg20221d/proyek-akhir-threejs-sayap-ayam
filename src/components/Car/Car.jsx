@@ -10,16 +10,16 @@ import { WheelDebug } from "./WheelDebug";
 import { useGLTF } from "@react-three/drei";
 
 const Car = () => {
-  // "(FREE) Cyberpunk Hovercar" (https://skfb.ly/6WyrM) by Karol Miklas is licensed under Creative Commons Attribution-ShareAlike (http://creativecommons.org/licenses/by-sa/4.0/).
+  // "UFO Doodle" (https://skfb.ly/ozxTn) by re1monsen is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
   let result = useLoader(
     GLTFLoader,
-    "/models/hovercar.glb"
+    "/models/ufo/ufo.glb"
   ).scene;
 
   console.log(result);
-  const scale = 1
+  const scale = 0.25
 
-  const position = [-1.5, 0.5, 3];
+  const position = [0, 0, 0];
   const width = 1.5;
   const height = 0.7;
   const front = 1.5;
@@ -54,26 +54,23 @@ const Car = () => {
     let mesh = result;
     mesh.scale.set(scale, scale, scale);
 
-    mesh.children[0].position.set(0, 0, 0);
+    mesh.children[0].position.set(0, 2, 0);
   }, [result]);
 
   return (
-    <group
-      ref={vehicle}
-      name="hovercar"
-    >
+    <group ref={vehicle} name="ufo">
       <group ref={chassisBody} name="chassisBody">
-        <primitive object={result} rotation-y={Math.PI} position={[0, -0.09, 0]}/>
+        <primitive object={result} rotation-y={Math.PI}/>
       </group>
 
-      <mesh ref={chassisBody}>
+      {/* <mesh ref={chassisBody}>
         <meshBasicMaterial
           transparent={true}
           opacity={0.3}
           color={0x000000}
         ></meshBasicMaterial>
         <boxGeometry args={chassisBodyArgs}></boxGeometry>
-      </mesh>
+      </mesh> */}
 
       <WheelDebug wheelRef={wheels[0]} radius={wheelRadius} />
       <WheelDebug wheelRef={wheels[1]} radius={wheelRadius} />

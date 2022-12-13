@@ -4,7 +4,7 @@ export const useControls = (vehicleAPI, chassisAPI) => {
     let [controls, setControls] = useState({
     });
 
-    const speed = 1s50;
+    const speed = 150;
     const frontTurn = 0.76;
     const backTurn = 0;
 
