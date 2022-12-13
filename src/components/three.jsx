@@ -28,6 +28,11 @@ const Three = () => {
 
   const orbitControlsRef = useRef(null);
 
+
+  //#region Third Person Camera State
+  const [thirdPerson, setThirdPerson] = useState(true);
+  const [cameraPosition, setCameraPosition] = useState([0, 0, 0])
+
   const [usrX, setUsrX] = useState(0);
   const [usrY, setUsrY] = useState(10);
   const [usrZ, setUsrZ] = useState(0);
@@ -49,9 +54,10 @@ const Three = () => {
         position={[100, 100, 110]}
         fov={40}
       ></PerspectiveCamera>
-      <OrbitControls target={[usrX, usrY, usrZ]}></OrbitControls>
-      
-      <Car></Car>
+      {!thirdPerson &&
+      (<OrbitControls target={[usrX, usrY, usrZ]}></OrbitControls>)}
+
+      <Car thirdPerson={thirdPerson}></Car>
 
       {/* <ModelScaler></ModelScaler> */}
       

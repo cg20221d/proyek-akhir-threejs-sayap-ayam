@@ -8,8 +8,9 @@ import useWheels from "./useWheels";
 import { useControls } from "./useControls";
 import { WheelDebug } from "./WheelDebug";
 import { useGLTF } from "@react-three/drei";
+import { Quaternion, Vector3 } from "three";
 
-const Car = () => {
+const Car = ({thirdPerson}) => {
   // "UFO Doodle" (https://skfb.ly/ozxTn) by re1monsen is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
   let result = useLoader(
     GLTFLoader,
@@ -47,6 +48,29 @@ const Car = () => {
   );
 
   useControls(vehicleApi, chassisApi);
+
+  useFrame((state) => {
+    if(!thirdPerson) return;
+    
+    let position = new Vector3(0, 0, 0);
+    position.setFromMatrixPosition(chassisBody.current.matrixWorld);
+
+    let quaternion = new Quaternion(0, 0, 0, 0);
+    quaternion.setFromRotationMatrix(chassisBody.current.matrixWorld);
+
+    let wDirection = new Vector3(0, 0, -1);
+    wDirection.applyQuaternion(quaternion);
+    wDirection.normalize();
+
+    let cameraPosition = position.clone().add(
+      wDirection.clone().multiplyScalar(-1).add(
+        new Vector3(0, 5, 10)
+      )
+    );
+
+    state.camera.position.copy(cameraPosition);
+    state.camera.lookAt(position);
+  })
 
   useEffect(() => {
     if (!result) return;
