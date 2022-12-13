@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 
 export const useControls = (vehicleAPI, chassisAPI) => {
     let [controls, setControls] = useState({
-
     });
+
+    const speed = 1s50;
+    const frontTurn = 0.76;
+    const backTurn = 0;
 
     useEffect(() => {
         const keyDownHandler = (e) => {
@@ -28,14 +31,28 @@ export const useControls = (vehicleAPI, chassisAPI) => {
 
     useEffect(() => {
         if(controls.w){
-            vehicleAPI.applyEngineForce(150, 2);
-            vehicleAPI.applyEngineForce(150, 3);
+            vehicleAPI.applyEngineForce(speed, 2);
+            vehicleAPI.applyEngineForce(speed, 3);
         }else if(controls.s){
-            vehicleAPI.applyEngineForce(-150, 2);
-            vehicleAPI.applyEngineForce(-150, 3);
+            vehicleAPI.applyEngineForce(-speed, 2);
+            vehicleAPI.applyEngineForce(-speed, 3);
         }else {
             vehicleAPI.applyEngineForce(0, 2);
             vehicleAPI.applyEngineForce(0, 3);
+        }
+
+        if(controls.a){
+            vehicleAPI.setSteeringValue(frontTurn, 2);
+            vehicleAPI.setSteeringValue(frontTurn, 3);
+            vehicleAPI.setSteeringValue(-backTurn, 0);
+            vehicleAPI.setSteeringValue(-backTurn, 1);
+        }else if(controls.d){
+            vehicleAPI.setSteeringValue(-frontTurn, 2);
+            vehicleAPI.setSteeringValue(-frontTurn, 3);
+            vehicleAPI.setSteeringValue(backTurn, 0);
+            vehicleAPI.setSteeringValue(backTurn, 1);
+        }else {
+            for(let i = 0; i < 4; i++) vehicleAPI.setSteeringValue(0, i);
         }
     }, [controls, vehicleAPI, chassisAPI])
 
